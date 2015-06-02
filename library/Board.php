@@ -23,8 +23,11 @@ class Board
     private $lines = '87654321';
     private $fields = 'abcdefgh';
 
-    public function __construct($position)
+    public function __construct()
     {
+    }
+
+    public function setPosition($position) {
         $lines = explode('/', $position);
         foreach ($lines as $lineKey => $line) {
             $fields = str_split($line);

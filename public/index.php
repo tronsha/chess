@@ -5,6 +5,9 @@ require_once('../vendor/autoload.php');
 use Chess\Chess;
 
 $chess = new Chess;
+if (isset($_GET['fen']) === true) {
+    $chess->setFen($_GET['fen']);
+}
 $board = $chess->getBorad();
 
 ?><html>

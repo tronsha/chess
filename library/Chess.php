@@ -23,16 +23,20 @@ class Chess
 
     public function __construct($fen = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')
     {
-        list($position, $next, $castling, $enpassant, $halfmoves, $fullmove) = explode(' ', $fen);
+        $this->board = new Board;
+        $this->setFen($fen);
+    }
 
+    public function setFen($fen)
+    {
+        list($position, $next, $castling, $enpassant, $halfmoves, $fullmove) = explode(' ', $fen);
         $this->position = $position;
         $this->next = $next;
         $this->castling = $castling;
         $this->enpassant = $enpassant;
         $this->halfmoves = $halfmoves;
         $this->fullmove = $fullmove;
-
-        $this->board = new Board($this->position);
+        $this->board->setPosition($this->position);
     }
 
     public function getBorad()
