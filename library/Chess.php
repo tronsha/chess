@@ -67,9 +67,9 @@ class Chess
             $output = stream_get_contents($pipes[1]);
             fclose($pipes[1]);
             proc_close($process);
-            preg_match('/bestmove\s*([0-9a-h]{4})/', $output, $matches);
-
-            return $matches[1];
+            if (preg_match('/bestmove\s*([0-9a-h]{4})/', $output, $matches)) {
+                return $matches[1];
+            }
         }
     }
 }
