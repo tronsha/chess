@@ -1,0 +1,51 @@
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    background: linear-gradient(#666666, #CCCCCC) repeat fixed 0% 0% #CCCCCC;
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    font-family: Audiowide;
+    font-size: 40px;
+    font-weight: normal;
+    letter-spacing: 10px;
+    text-align: center;
+}
+
+#board {
+    height: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 400px;
+}
+
+#board > div {
+    color: #000000;
+    float: left;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    width: 50px;
+}
+
+#board > div:nth-child(8n+1) {
+    clear: both;
+}
+
+.b {
+    background-color: #661f00;
+}
+
+.w {
+    background-color: #FFFFFF;
+}

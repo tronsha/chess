@@ -9,8 +9,33 @@ namespace Chess;
 
 class Chessman
 {
+    const k = '&#9818;';
+    const q = '&#9819;';
+    const r = '&#9820;';
+    const b = '&#9821;';
+    const n = '&#9822;';
+    const p = '&#9823;';
+    const K = '&#9812;';
+    const Q = '&#9813;';
+    const R = '&#9814;';
+    const B = '&#9815;';
+    const N = '&#9816;';
+    const P = '&#9817;';
 
-    private $color;
+    const black = 1;
+    const white = 0;
+
+    protected $color = null;
+
+    public function __construct($color)
+    {
+        if ($color === self::white || $color === 'w' || $color === 'white') {
+            $this->color = self::white;
+        }
+        if ($color === self::black || $color === 'b' || $color === 'black') {
+            $this->color = self::black;
+        }
+    }
 
     public function setColor($color)
     {
@@ -21,5 +46,4 @@ class Chessman
     {
         return $this->color;
     }
-
 }

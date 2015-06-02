@@ -9,5 +9,12 @@ namespace Chess;
 
 class Pawn extends Chessman
 {
-
+    public function __toString()
+    {
+        if ($this->color === 0) {
+            return self::P;
+        } else {
+            return self::p;
+        }
+    }
 }
