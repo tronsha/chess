@@ -9,12 +9,21 @@ namespace Chess;
 
 class Queen extends Chessman
 {
-    public function __toString()
+    public function getHtml()
     {
         if ($this->color === 0) {
             return self::Q;
         } else {
             return self::q;
+        }
+    }
+
+    public function __toString()
+    {
+        if ($this->color === 0) {
+            return 'Q';
+        } else {
+            return 'q';
         }
     }
 }

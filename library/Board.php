@@ -23,8 +23,16 @@ class Board
     private $lines = '87654321';
     private $fields = 'abcdefgh';
 
+    private $fen = [];
+
     public function __construct()
     {
+    }
+
+    public function setFen($fen)
+    {
+        $this->fen = $fen;
+        $this->setPosition($this->fen['position']);
     }
 
     public function setPosition($position) {
@@ -80,14 +88,18 @@ class Board
         }
     }
 
-    public function __toString()
+    public function getPosition()
+    {
+        //TODO
+    }
+
+    public function getHtml()
     {
         $boardHtml = '';
         $bw = 0;
-
         foreach ($this->board as $lineKey => $line) {
             foreach ($line as $fieldKey => $field) {
-                $boardHtml .= '<div id="' . $this->fields[$fieldKey] . $this->lines[$lineKey] . '" class="' . ($bw++ % 2 ? 'b' : 'w') . '">' . ($this->board[$lineKey][$fieldKey] !== null ? $this->board[$lineKey][$fieldKey] : '') . '</div>';
+                $boardHtml .= '<div id="' . $this->fields[$fieldKey] . $this->lines[$lineKey] . '" class="' . ($bw++ % 2 ? 'b' : 'w') . '">' . ($this->board[$lineKey][$fieldKey] !== null ? $this->board[$lineKey][$fieldKey]->getHtml() : '') . '</div>';
             }
             $bw++;
         }

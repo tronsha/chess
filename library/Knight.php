@@ -9,12 +9,21 @@ namespace Chess;
 
 class Knight extends Chessman
 {
-    public function __toString()
+    public function getHtml()
     {
         if ($this->color === 0) {
             return self::N;
         } else {
             return self::n;
+        }
+    }
+
+    public function __toString()
+    {
+        if ($this->color === 0) {
+            return 'N';
+        } else {
+            return 'n';
         }
     }
 }
