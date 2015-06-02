@@ -25,6 +25,6 @@ $board = $chess->getBoardHtml();
 <body>
 <h1>Chess</h1>
 <div id="board"><?php echo $board; ?></div>
-<?php echo $chess->getComputerMove(); ?>
+<?php //echo $chess->getComputerMove(); ?>
 </body>
 </html>

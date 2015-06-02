@@ -5,6 +5,7 @@ namespace Chess;
 /**
  * Class Chessman
  * @author Stefan Hüsges
+ * @link http://en.wikipedia.org/wiki/Chess_symbols_in_Unicode
  */
 
 class Chessman
