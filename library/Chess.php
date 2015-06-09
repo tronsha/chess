@@ -36,9 +36,25 @@ class Chess
     public function getFen()
     {
         $this->fen['position'] = $this->board->getPosition();
+        $this->fen['next'] = $this->board->getNext();
+        $this->fen['castling'] = $this->board->getCastling();
+        $this->fen['enpassant'] = $this->board->getEnpassant();
+        $this->fen['halfmoves'] = $this->board->getHalfmoves();
+        $this->fen['fullmove'] = $this->board->getFullmove();
         $fen = $this->fen['position'] . ' ' . $this->fen['next'] . ' ' . $this->fen['castling'] . ' ' . $this->fen['enpassant'] . ' ' . $this->fen['halfmoves'] . ' ' . $this->fen['fullmove'];
 
         return $fen;
+    }
+
+    public function move($move)
+    {
+        $from = substr($move, 0, 2);
+        $to = substr($move, 2, 2);
+        if ($this->board->checkMove($from, $to) === true) {
+            $this->board->move($from, $to);
+            return true;
+        }
+        return false;
     }
 
     public function getBoardHtml()

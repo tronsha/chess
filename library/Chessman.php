@@ -27,9 +27,11 @@ class Chessman
     const white = 0;
 
     protected $color = null;
+    protected $board = null;
 
-    public function __construct($color)
+    public function __construct($board, $color)
     {
+        $this->board = $board;
         if ($color === self::white || $color === 'w' || $color === 'white') {
             $this->color = self::white;
         }
