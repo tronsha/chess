@@ -8,6 +8,9 @@ $chess = new Chess;
 if (isset($_GET['fen']) === true) {
     $chess->setFen($_GET['fen']);
 }
+if (isset($_GET['moves']) === true) {
+    $chess->setMoves($_GET['moves']);
+}
 $board = $chess->getBoardHtml();
 
 ?><html>
@@ -25,6 +28,5 @@ $board = $chess->getBoardHtml();
 <body>
 <h1>Chess</h1>
 <div id="board"><?php echo $board; ?></div>
-<?php //echo $chess->getComputerMove(); ?>
 </body>
 </html>

@@ -34,7 +34,9 @@ h1 {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 75px;
     height: 75px;
-    line-height: 75px;
+    /*line-height: 75px;*/
+    max-height: 12.5%;
+    max-width: 12.5%;
     text-align: center;
     width: 75px;
 }

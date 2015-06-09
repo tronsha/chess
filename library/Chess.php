@@ -46,6 +46,17 @@ class Chess
         return $fen;
     }
 
+    public function setMoves($moves)
+    {
+        $moveArray = explode('|', $moves);
+        foreach ($moveArray as $move) {
+            if ($this->move($move) === false) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public function move($move)
     {
         $from = substr($move, 0, 2);
