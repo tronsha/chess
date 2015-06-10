@@ -169,6 +169,66 @@ class Board
 
         //TODO
 
+        if ($figure instanceof King) {
+            $color = $figure->getColor();
+            if ($color === 0) {
+                if($from == 'e1' && $to == 'g1' && strpos($this->fen['castling'], 'K') !== false) {
+                    $this->setToField('f1', $this->getFieldFigure('h1'));
+                    $this->setToField('h1', null);
+                }
+                if($from == 'e1' && $to == 'c1' && strpos($this->fen['castling'], 'Q') !== false) {
+                    $this->setToField('d1', $this->getFieldFigure('a1'));
+                    $this->setToField('a1', null);
+                }
+                $this->fen['castling'] = str_replace(array('K', 'Q'), '', $this->fen['castling']);
+                if (empty($this->fen['castling'])) {
+                    $this->fen['castling'] = '-';
+                }
+            } elseif ($color === 1) {
+                if($from == 'e8' && $to == 'g8' && strpos($this->fen['castling'], 'k') !== false) {
+                    $this->setToField('f8', $this->getFieldFigure('h8'));
+                    $this->setToField('h8', null);
+                }
+                if($from == 'e8' && $to == 'c8' && strpos($this->fen['castling'], 'q') !== false) {
+                    $this->setToField('d8', $this->getFieldFigure('a8'));
+                    $this->setToField('a8', null);
+                }
+                $this->fen['castling'] = str_replace(array('k', 'q'), '', $this->fen['castling']);
+                if (empty($this->fen['castling'])) {
+                    $this->fen['castling'] = '-';
+                }
+            }
+        }
+        if ($figure instanceof Rook) {
+            $color = $figure->getColor();
+            if ($color === 0) {
+                if($from == 'a1') {
+                    $this->fen['castling'] = str_replace(array('Q'), '', $this->fen['castling']);
+                    if (empty($this->fen['castling'])) {
+                        $this->fen['castling'] = '-';
+                    }
+                }
+                if($from == 'h1') {
+                    $this->fen['castling'] = str_replace(array('K'), '', $this->fen['castling']);
+                    if (empty($this->fen['castling'])) {
+                        $this->fen['castling'] = '-';
+                    }
+                }
+            } elseif ($color === 1) {
+                if($from == 'a8') {
+                    $this->fen['castling'] = str_replace(array('q'), '', $this->fen['castling']);
+                    if (empty($this->fen['castling'])) {
+                        $this->fen['castling'] = '-';
+                    }
+                }
+                if($from == 'g8') {
+                    $this->fen['castling'] = str_replace(array('k'), '', $this->fen['castling']);
+                    if (empty($this->fen['castling'])) {
+                        $this->fen['castling'] = '-';
+                    }
+                }
+            }
+        }
         if ($figure instanceof Pawn) {
             $color = $figure->getColor();
             if ($color === 0 && substr($from, 1, 1) == 2 && substr($to, 1, 1) == 4) {
