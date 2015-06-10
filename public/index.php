@@ -15,6 +15,7 @@ $board = $chess->getBoardHtml();
 
 ?><html>
 <head>
+    <meta http-equiv="refresh" content="5; url='?moves=<?php echo (isset($_GET['moves']) ? $_GET['moves'] . '|' : '') . $chess->getComputerMove(); ?>'" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Chess</title>

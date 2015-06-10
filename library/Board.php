@@ -90,7 +90,29 @@ class Board
 
     public function getPosition()
     {
-        //TODO
+        $fenPosition = '';
+        $count = 0;
+        foreach ($this->board as $lineKey => $line) {
+            foreach ($line as $field) {
+                if ($field !== null) {
+                    if ($count > 0) {
+                        $fenPosition .= $count;
+                    }
+                    $fenPosition .= $field;
+                    $count = 0;
+                } else {
+                    $count++;
+                }
+            }
+            if ($count > 0) {
+                $fenPosition .= $count;
+            }
+            if ($lineKey < 7) {
+                $fenPosition .= '/';
+            }
+            $count = 0;
+        }
+        return $fenPosition;
     }
 
     public function getNext()
