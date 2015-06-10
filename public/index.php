@@ -28,7 +28,7 @@ $computerMove = $chess->getComputerMove();
     <script type="text/javascript" src="js/player.js"></script>
     <link href="css/normalize.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <h1>Chess</h1>
