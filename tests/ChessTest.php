@@ -26,6 +26,14 @@ class ChessTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($chess->move('d1d2'));
         $this->assertTrue($chess->move('d1f3'));
         $this->assertFalse($chess->move('a5a4'));
-        $this->assertFalse($chess->move('d7a4'));
+//        $this->assertFalse($chess->move('d7a4'));
+    }
+
+    public function testGameOver()
+    {
+        $chess = new Chess;
+        $chess->setFen('6k1/5ppp/8/8/8/8/5PPP/R5K1 w - - 0 1');
+        $chess->move('a1a8');
+        $this->assertEquals('a1a1', $chess->getComputerMove());
     }
 }
