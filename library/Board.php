@@ -250,7 +250,13 @@ class Board
             $this->fen['fullmove']++;
         }
         $this->fen['next'] = ($this->fen['next'] === 'w' ? 'b' : 'w');
-        $this->setToField($to, $this->getFieldFigure($from));
+        if ($figure instanceof Pawn && $color === 0 && substr($to, 1, 1) == 8) {
+            $this->setToField($to, new Queen($this, 'white'));
+        } elseif ($figure instanceof Pawn && $color === 1 && substr($to, 1, 1) == 1) {
+            $this->setToField($to, new Queen($this, 'black'));
+        } else {
+            $this->setToField($to, $this->getFieldFigure($from));
+        }
         $this->setToField($from, null);
     }
 
