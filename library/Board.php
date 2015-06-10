@@ -166,9 +166,6 @@ class Board
     public function move($from, $to)
     {
         $figure = $this->getFieldFigure($from);
-
-        //TODO
-
         if ($figure instanceof King) {
             $color = $figure->getColor();
             if ($color === 0) {

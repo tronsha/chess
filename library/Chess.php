@@ -46,6 +46,11 @@ class Chess
         return $fen;
     }
 
+    public function getNext()
+    {
+        return $this->board->getNext();
+    }
+
     public function setMoves($moves)
     {
         $moveArray = explode('|', $moves);

@@ -30,6 +30,7 @@ h1 {
 
 #board > div {
     color: #000000;
+    cursor: pointer;
     float: left;
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 75px;
