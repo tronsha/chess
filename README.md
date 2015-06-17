@@ -7,6 +7,10 @@ Chess
 
 ![](screenshot.png)
 
+## Links
+
+♞ [GNU Chess][3]
+
 ## Creator
 
 **Stefan Hüsges**
@@ -21,3 +25,4 @@ Chess
 
 [1]: http://www.mpcx.net
 [2]: https://github.com/tronsha
+[3]: http://www.gnu.org/software/chess/
