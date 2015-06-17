@@ -92,7 +92,7 @@ class Chess
             sleep(1);
             fwrite($pipes[0], 'position fen ' . $this->getFen() . PHP_EOL);
             sleep(1);
-            fwrite($pipes[0], 'go depth 1' . PHP_EOL);
+            fwrite($pipes[0], 'go depth 5' . PHP_EOL);
             sleep(1);
             fwrite($pipes[0], 'quit' . PHP_EOL);
             fclose($pipes[0]);
