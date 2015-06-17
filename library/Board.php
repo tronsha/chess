@@ -29,6 +29,11 @@ class Board
     {
     }
 
+    public function getArray()
+    {
+        return $this->board;
+    }
+
     public function setFen($fen)
     {
         $this->fen = $fen;

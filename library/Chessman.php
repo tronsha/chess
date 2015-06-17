@@ -8,7 +8,7 @@ namespace Chess;
  * @link http://en.wikipedia.org/wiki/Chess_symbols_in_Unicode
  */
 
-class Chessman
+abstract class Chessman
 {
     const k = '&#9818;';
     const q = '&#9819;';
@@ -28,9 +28,11 @@ class Chessman
 
     protected $color = null;
     protected $board = null;
+    protected $id = null;
 
     public function __construct($board, $color)
     {
+        $this->id = md5(uniqid('', true) . mt_rand());
         $this->board = $board;
         if ($color === self::white || $color === 'w' || $color === 'white') {
             $this->color = self::white;
@@ -48,5 +50,16 @@ class Chessman
     public function getColor()
     {
         return $this->color;
+    }
+
+    public function getPosition()
+    {
+        foreach ($this->board->getArray() as $lineKey => $line) {
+            foreach ($line as $fieldKey => $field) {
+                if ($field == $this) {
+                    return [$lineKey, $fieldKey];
+                }
+            }
+        }
     }
 }
