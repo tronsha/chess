@@ -36,4 +36,14 @@ class ChessTest extends PHPUnit_Framework_TestCase
         $chess->move('a1a8');
         $this->assertEquals('a1a1', $chess->getComputerMove());
     }
+
+    public function testEnpassant()
+    {
+        $chess = new Chess;
+        $chess->setFen('4k3/4p3/8/8/3P4/8/8/4K3 w - - 0 1');
+        $chess->move('d4d5');
+        $chess->move('e7e5');
+        $chess->move('d5e6');
+        $this->assertEquals(null, $chess->getFieldFigure('e5'));
+    }
 }

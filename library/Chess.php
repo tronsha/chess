@@ -78,6 +78,11 @@ class Chess
         return $this->board->getHtml();
     }
 
+    public function getFieldFigure($field)
+    {
+        return $this->board->getFieldFigure($field);
+    }
+
     public function getComputerMove()
     {
         $descriptorspec = array(

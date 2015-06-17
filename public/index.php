@@ -13,10 +13,10 @@ if (isset($_GET['moves']) === true) {
 }
 $board = $chess->getBoardHtml();
 
-$computerMove = $chess->getComputerMove();
+//$computerMove = $chess->getComputerMove();
 ?><html>
 <head>
-<?php if ($chess->getNext() == 'b' && $computerMove != 'a1a1'): ?>
+<?php if (isset($computerMove) && $chess->getNext() == 'b' && $computerMove != 'a1a1'): ?>
     <meta http-equiv="refresh" content="5; url='?<?php echo (isset($_GET['fen']) ? 'fen=' . $_GET['fen'] . '&amp;' : ''); ?>moves=<?php echo (isset($_GET['moves']) ? $_GET['moves'] . '|' : '') . $computerMove; ?>'">
 <?php endif; ?>
     <meta charset="utf-8">
