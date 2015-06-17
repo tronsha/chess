@@ -66,11 +66,14 @@ class Chess
     {
         $from = substr($move, 0, 2);
         $to = substr($move, 2, 2);
-        if ($this->board->checkMove($from, $to) === true) {
+        $check = $this->board->checkMove($from, $to);
+        if ($check['move'] === true) {
             $this->board->move($from, $to);
             return true;
+        } else {
+            //json_encode($check['error']);
+            return false;
         }
-        return false;
     }
 
     public function getBoardHtml()

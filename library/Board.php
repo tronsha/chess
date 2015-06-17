@@ -151,23 +151,23 @@ class Board
     {
         $figure = $this->getFieldFigure($from);
         if ($figure === null) {
-            return false;
+            return ['move' => false, 'error' => $from . ' is an empty field.'];
         }
         $color = $figure->getColor();
         if ((($color === 0 && $this->fen['next'] === 'w') || ($color === 1 && $this->fen['next'] === 'b')) === false) {
-            return false;
+            return ['move' => false, 'error' => 'Next player is ' . $this->fen['next']];
         }
         $figure2 = $this->getFieldFigure($to);
         if ($figure2 !== null) {
             $color2 = $figure2->getColor();
             if (($color2 === 0 && $this->fen['next'] === 'w') || ($color2 === 1 && $this->fen['next'] === 'b')) {
-                return false;
+                return ['move' => false, 'error' => 'On ' . $to .  ' is one of your figures'];
             }
         }
 
         //TODO
 
-        return true;
+        return ['move' => true];
     }
 
     public function move($from, $to)
