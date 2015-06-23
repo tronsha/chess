@@ -37,6 +37,66 @@ class ChessTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('a1a1', $chess->getComputerMove());
     }
 
+    public function testCastling()
+    {
+        $chess = new Chess;
+        $chess->setFen('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R w KQkq - 0 1');
+        $chess->move('e1g1');
+        $this->assertEquals('R', $chess->getFieldFigure('f1'));
+        $chess = new Chess;
+        $chess->setFen('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R w KQkq - 0 1');
+        $chess->move('e1c1');
+        $this->assertEquals('R', $chess->getFieldFigure('d1'));
+        $chess = new Chess;
+        $chess->setFen('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R b KQkq - 0 1');
+        $chess->move('e8g8');
+        $this->assertEquals('r', $chess->getFieldFigure('f8'));
+        $chess = new Chess;
+        $chess->setFen('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R b KQkq - 0 1');
+        $chess->move('e8c8');
+        $this->assertEquals('r', $chess->getFieldFigure('d8'));
+        $chess = new Chess;
+        $chess->setFen('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R w - - 0 1');
+        $chess->move('e1g1');
+        $this->assertNull($chess->getFieldFigure('f1'));
+        $chess = new Chess;
+        $chess->setFen('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R w - - 0 1');
+        $chess->move('e1c1');
+        $this->assertNull($chess->getFieldFigure('d1'));
+        $chess = new Chess;
+        $chess->setFen('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R b - - 0 1');
+        $chess->move('e8g8');
+        $this->assertNull($chess->getFieldFigure('f8'));
+        $chess = new Chess;
+        $chess->setFen('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R b - - 0 1');
+        $chess->move('e8c8');
+        $this->assertNull($chess->getFieldFigure('d8'));
+        $chess = new Chess;
+        $chess->setFen('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R w KQ - 0 1');
+        $chess->move('e1g1');
+        $this->assertEquals('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R4RK1 b - - 1 1', $chess->getFen());
+        $chess = new Chess;
+        $chess->setFen('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R b kq - 0 1');
+        $chess->move('e8g8');
+        $this->assertEquals('r4rk1/pppppppp/8/8/8/8/PPPPPPPP/R3K2R w - - 1 2', $chess->getFen());
+        $chess = new Chess;
+        $chess->setFen('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R w K - 0 1');
+        $chess->move('h1g1');
+        $this->assertEquals('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K1R1 b - - 1 1', $chess->getFen());
+        $chess = new Chess;
+        $chess->setFen('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R w Q - 0 1');
+        $chess->move('a1b1');
+        $this->assertEquals('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/1R2K2R b - - 1 1', $chess->getFen());
+        $chess = new Chess;
+        $chess->setFen('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R b k - 0 1');
+        $chess->move('h8g8');
+        $this->assertEquals('r3k1r1/pppppppp/8/8/8/8/PPPPPPPP/R3K2R w - - 1 2', $chess->getFen());
+        $chess = new Chess;
+        $chess->setFen('r3k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R b q - 0 1');
+        $chess->move('a8b8');
+        $this->assertEquals('1r2k2r/pppppppp/8/8/8/8/PPPPPPPP/R3K2R w - - 1 2', $chess->getFen());
+    }
+
     public function testEnpassant()
     {
         $chess = new Chess;
@@ -44,6 +104,24 @@ class ChessTest extends PHPUnit_Framework_TestCase
         $chess->move('d4d5');
         $chess->move('e7e5');
         $chess->move('d5e6');
-        $this->assertEquals(null, $chess->getFieldFigure('e5'));
+        $this->assertNull($chess->getFieldFigure('e5'));
+        $chess = new Chess;
+        $chess->setFen('4k3/8/8/4p3/8/8/3P4/4K3 b - - 0 1');
+        $chess->move('e5e4');
+        $chess->move('d2d4');
+        $chess->move('e4d3');
+        $this->assertNull($chess->getFieldFigure('d4'));
+    }
+
+    public function testFigureTransformation()
+    {
+        $chess = new Chess;
+        $chess->setFen('4k3/P7/8/8/9/8/8/4K3 w - - 0 1');
+        $chess->move('a7a8');
+        $this->assertEquals('Q', $chess->getFieldFigure('a8'));
+        $chess = new Chess;
+        $chess->setFen('4k3/8/8/8/8/8/p7/4K3 b - - 0 1');
+        $chess->move('a2a1');
+        $this->assertEquals('q', $chess->getFieldFigure('a1'));
     }
 }

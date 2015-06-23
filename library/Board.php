@@ -225,7 +225,7 @@ class Board
                         $this->fen['castling'] = '-';
                     }
                 }
-                if ($from == 'g8') {
+                if ($from == 'h8') {
                     $this->fen['castling'] = str_replace(array('k'), '', $this->fen['castling']);
                     if (empty($this->fen['castling'])) {
                         $this->fen['castling'] = '-';
@@ -356,7 +356,6 @@ class Board
             case (1):
                 $y = 7;
                 break;
-
         }
 
         return [$x, $y];
