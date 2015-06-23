@@ -35,10 +35,10 @@ abstract class Chessman
         $this->id = md5(uniqid('', true) . mt_rand());
         $this->board = $board;
         if ($color === self::white || $color === 'w' || $color === 'white') {
-            $this->color = self::white;
+            $this->setColor(self::white);
         }
         if ($color === self::black || $color === 'b' || $color === 'black') {
-            $this->color = self::black;
+            $this->setColor(self::black);
         }
     }
 
