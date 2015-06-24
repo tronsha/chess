@@ -88,6 +88,7 @@ class Chess
 
     public function getComputerMove()
     {
+		$return = null;
         $descriptorspec = array(
             0 => array("pipe", "r"),
             1 => array("pipe", "w"),
@@ -108,8 +109,9 @@ class Chess
             fclose($pipes[1]);
             proc_close($process);
             if (preg_match('/bestmove\s*([0-9a-h]{4})/', $output, $matches)) {
-                return $matches[1];
+                $return = $matches[1];
             }
         }
+        return $return;
     }
 }
