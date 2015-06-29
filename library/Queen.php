@@ -51,8 +51,6 @@ class Queen extends Chessman
                         return false;
                     }
                 }
-            } else {
-                return false;
             }
 
             return true;
@@ -77,8 +75,6 @@ class Queen extends Chessman
                         return false;
                     }
                 }
-            } else {
-                return false;
             }
 
             return true;

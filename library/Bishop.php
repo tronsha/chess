@@ -49,8 +49,6 @@ class Bishop extends Chessman
                         return false;
                     }
                 }
-            } else {
-                return false;
             }
 
             return true;
