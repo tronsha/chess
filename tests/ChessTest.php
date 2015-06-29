@@ -172,9 +172,9 @@ class ChessTest extends PHPUnit_Framework_TestCase
     {
         $chess = new Chess;
         $blackKing = $chess->getFieldFigure('e8');
-        $this->assertEquals(array(0, 4), $blackKing->getPosition());
+        $this->assertEquals(array(4, 0), $blackKing->getPosition());
         $whiteQueen = $chess->getFieldFigure('d1');
-        $this->assertEquals(array(7, 3), $whiteQueen->getPosition());
+        $this->assertEquals(array(3, 7), $whiteQueen->getPosition());
     }
 
     public function testGetNext()
