@@ -164,9 +164,9 @@ class Board
                 return ['move' => false, 'error' => 'On ' . $to .  ' is one of your figures'];
             }
         }
-
-        //TODO
-
+        if ($figure->checkMove($to) === false) {
+            return ['move' => false, 'error' => 'Can not move to this field.'];
+        }
         return ['move' => true];
     }
 

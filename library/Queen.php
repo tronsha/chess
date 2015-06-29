@@ -26,4 +26,15 @@ class Queen extends Chessman
             return 'q';
         }
     }
+
+    public function checkMove($to)
+    {
+        if (in_array($this->getDistance($to), [1, 2, 3, 4, 5, 6, 7])) {
+            return true;
+        }
+        if (in_array(round($this->getDistance($to)/ 1.4142135623731, 6), [1, 2, 3, 4, 5, 6, 7])) {
+            return true;
+        }
+        return false;
+    }
 }

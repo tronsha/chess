@@ -26,4 +26,12 @@ class Knight extends Chessman
             return 'n';
         }
     }
+
+    public function checkMove($to)
+    {
+        if (round($this->getDistance($to), 6) == 2.236068) {
+            return true;
+        }
+        return false;
+    }
 }

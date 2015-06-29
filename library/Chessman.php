@@ -57,9 +57,18 @@ abstract class Chessman
         foreach ($this->board->getArray() as $lineKey => $line) {
             foreach ($line as $fieldKey => $field) {
                 if ($field == $this) {
-                    return [$lineKey, $fieldKey];
+                    return [$fieldKey, $lineKey];
                 }
             }
         }
     }
+
+    public function getDistance($to)
+    {
+        $from = $this->getPosition();
+        $to = $this->board->key2ids($to);
+        return sqrt(pow(abs($from[0] - $to[0]), 2) + pow(abs($from[1] - $to[1]), 2));
+    }
+
+    public function checkMove($to) {}
 }
