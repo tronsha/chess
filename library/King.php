@@ -26,4 +26,33 @@ class King extends Chessman
             return 'k';
         }
     }
+
+    public function checkMove($to)
+    {
+        if ($this->getDistance($to) == 1) {
+            return true;
+        } elseif (round($this->getDistance($to) / 1.4142135623731, 6) == 1) {
+            return true;
+        } elseif ($this->getDistance($to) == 2) {
+            $from = $this->getPosition();
+            $color = $this->getColor();
+            if ($color === 0) {
+                if ($from == [4, 7] && $this->board->key2ids($to) == [6, 7] && strpos($this->board->getCastling(), 'K') !== false) {
+                    return true;
+                }
+                if ($from == [4, 7] && $this->board->key2ids($to) == [2, 7] && strpos($this->board->getCastling(), 'Q') !== false) {
+                    return true;
+                }
+            } elseif ($color === 1) {
+                if ($from == [4, 0] && $this->board->key2ids($to) == [6, 0] && strpos($this->board->getCastling(), 'k') !== false) {
+                    return true;
+                }
+                if ($from == [4, 0] && $this->board->key2ids($to) == [2, 0] && strpos($this->board->getCastling(), 'q') !== false) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 }
