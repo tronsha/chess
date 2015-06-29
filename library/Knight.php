@@ -29,7 +29,7 @@ class Knight extends Chessman
 
     public function checkMove($to)
     {
-        if (round($this->getDistance($to), 6) == 2.236068) {
+        if (round($this->getDistance($to), 3) == 2.236) {
             return true;
         }
 

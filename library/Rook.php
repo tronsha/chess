@@ -51,6 +51,8 @@ class Rook extends Chessman
                         return false;
                     }
                 }
+            } else {
+                return false;
             }
 
             return true;

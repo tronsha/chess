@@ -29,7 +29,7 @@ class Bishop extends Chessman
 
     public function checkMove($to)
     {
-        if (in_array(round($this->getDistance($to) / 1.4142135623731, 6), [1, 2, 3, 4, 5, 6, 7])) {
+        if (in_array(round($this->getDistance($to) / M_SQRT2, 3), [1, 2, 3, 4, 5, 6, 7])) {
             $from = $this->getPosition();
             $to = $this->board->key2ids($to);
             $board = $this->board->getArray();
@@ -43,12 +43,14 @@ class Bishop extends Chessman
                         return false;
                     }
                 }
-            } else {
+            } elseif (($from[0] < $to[0] && $from[1] < $to[1]) || ($from[0] > $to[0] && $from[1] > $to[1])) {
                 for ($x = $minX + 1, $y = $minY + 1; $x < $maxX && $y < $maxY; $x++, $y++) {
                     if ($board[$y][$x] !== null) {
                         return false;
                     }
                 }
+            } else {
+                return false;
             }
 
             return true;

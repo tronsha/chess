@@ -31,7 +31,7 @@ class King extends Chessman
     {
         if ($this->getDistance($to) == 1) {
             return true;
-        } elseif (round($this->getDistance($to) / 1.4142135623731, 6) == 1) {
+        } elseif (round($this->getDistance($to) / M_SQRT2, 3) == 1) {
             return true;
         } elseif ($this->getDistance($to) == 2) {
             $from = $this->getPosition();
