@@ -161,12 +161,13 @@ class Board
         if ($figure2 !== null) {
             $color2 = $figure2->getColor();
             if (($color2 === 0 && $this->fen['next'] === 'w') || ($color2 === 1 && $this->fen['next'] === 'b')) {
-                return ['move' => false, 'error' => 'On ' . $to .  ' is one of your figures'];
+                return ['move' => false, 'error' => 'On ' . $to . ' is one of your figures'];
             }
         }
         if ($figure->checkMove($to) === false) {
             return ['move' => false, 'error' => 'Can not move to this field.'];
         }
+
         return ['move' => true];
     }
 
