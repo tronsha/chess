@@ -39,6 +39,38 @@ class ChessTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('B', $chess->getFieldFigure('f1'));
         $this->assertEquals('N', $chess->getFieldFigure('g1'));
         $this->assertEquals('R', $chess->getFieldFigure('h1'));
+        $this->assertNull($chess->getFieldFigure('a3'));
+        $this->assertNull($chess->getFieldFigure('b3'));
+        $this->assertNull($chess->getFieldFigure('c3'));
+        $this->assertNull($chess->getFieldFigure('d3'));
+        $this->assertNull($chess->getFieldFigure('e3'));
+        $this->assertNull($chess->getFieldFigure('f3'));
+        $this->assertNull($chess->getFieldFigure('g3'));
+        $this->assertNull($chess->getFieldFigure('h3'));
+        $this->assertNull($chess->getFieldFigure('a4'));
+        $this->assertNull($chess->getFieldFigure('b4'));
+        $this->assertNull($chess->getFieldFigure('c4'));
+        $this->assertNull($chess->getFieldFigure('d4'));
+        $this->assertNull($chess->getFieldFigure('e4'));
+        $this->assertNull($chess->getFieldFigure('f4'));
+        $this->assertNull($chess->getFieldFigure('g4'));
+        $this->assertNull($chess->getFieldFigure('h4'));
+        $this->assertNull($chess->getFieldFigure('a5'));
+        $this->assertNull($chess->getFieldFigure('b5'));
+        $this->assertNull($chess->getFieldFigure('c5'));
+        $this->assertNull($chess->getFieldFigure('d5'));
+        $this->assertNull($chess->getFieldFigure('e5'));
+        $this->assertNull($chess->getFieldFigure('f5'));
+        $this->assertNull($chess->getFieldFigure('g5'));
+        $this->assertNull($chess->getFieldFigure('h5'));
+        $this->assertNull($chess->getFieldFigure('a6'));
+        $this->assertNull($chess->getFieldFigure('b6'));
+        $this->assertNull($chess->getFieldFigure('c6'));
+        $this->assertNull($chess->getFieldFigure('d6'));
+        $this->assertNull($chess->getFieldFigure('e6'));
+        $this->assertNull($chess->getFieldFigure('f6'));
+        $this->assertNull($chess->getFieldFigure('g6'));
+        $this->assertNull($chess->getFieldFigure('h6'));
     }
 
     public function testGetBoardHtml()
