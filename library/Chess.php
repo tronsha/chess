@@ -88,7 +88,6 @@ class Chess
 
     public function getComputerMove()
     {
-		$return = null;
         $descriptorspec = array(
             0 => array("pipe", "r"),
             1 => array("pipe", "w"),
