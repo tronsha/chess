@@ -856,17 +856,40 @@ class ChessTest extends PHPUnit_Framework_TestCase
         $chess = new Chess;
         $chess->setFen('rnbqkbnr/ppp2ppp/8/3pp3/3PP3/8/PPP2PPP/RNBQKBNR b KQkq e6 0 3');
         $this->assertFalse($chess->move('e5f4'));
+        $chess = new Chess;
+        $chess->setFen('rnbqkbnr/ppp1pppp/8/3pP3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2');
+        $this->assertFalse($chess->move('e7e5'));
+        $chess = new Chess;
+        $chess->setFen('rnbqkbnr/ppp1pppp/8/4P3/3p4/8/PPPP1PPP/RNBQKBNR b KQkq - 0 3');
+        $this->assertFalse($chess->move('d4e5'));
+        $chess = new Chess;
+        $chess->setFen('rnbqkbnr/ppp1pppp/8/4P3/3p4/8/PPPP1PPP/RNBQKBNR w KQkq - 0 3');
+        $this->assertFalse($chess->move('e5d4'));
+        $chess = new Chess;
+        $chess->setFen('rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 2');
+        $this->assertFalse($chess->move('e4e2'));
+        $chess = new Chess;
+        $chess->setFen('rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 2');
+        $this->assertFalse($chess->move('e4e3'));
+        $chess = new Chess;
+        $chess->setFen('rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR b KQkq d6 0 2');
+        $this->assertFalse($chess->move('d5d7'));
+        $chess = new Chess;
+        $chess->setFen('rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR b KQkq d6 0 2');
+        $this->assertFalse($chess->move('d5d6'));
+        $chess = new Chess;
+        $chess->setFen('rnbqkbnr/ppp1pppp/4P3/8/8/3p4/PPPP1PPP/RNBQKBNR w KQkq - 0 4');
+        $this->assertFalse($chess->move('d2d4'));
+        $chess = new Chess;
+        $chess->setFen('rnbqkbnr/ppp1pppp/4P3/8/8/3p4/PPPP1PPP/RNBQKBNR b KQkq - 0 4');
+        $this->assertFalse($chess->move('e7e5'));
+
+
     }
 
-    public function testMove()
+    public function testNoFigureMove()
     {
         $chess = new Chess;
-        $this->assertFalse($chess->move('e7e5'));
-        $this->assertTrue($chess->move('e2e4'));
-        $this->assertTrue($chess->move('e7e5'));
-        $this->assertFalse($chess->move('d1d2'));
-        $this->assertTrue($chess->move('d1f3'));
         $this->assertFalse($chess->move('a5a4'));
-//        $this->assertFalse($chess->move('d7a4'));
     }
 }
