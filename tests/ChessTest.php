@@ -834,6 +834,30 @@ class ChessTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($chess->move('d4f5'));
     }
 
+    public function testMovePawn()
+    {
+        $chess = new Chess;
+        $this->assertFalse($chess->move('d2d5'));
+        $chess = new Chess;
+        $chess->setFen('rnbqkbnr/ppp2ppp/8/3pp3/3PP3/8/PPP2PPP/RNBQKBNR w KQkq e6 0 3');
+        $this->assertFalse($chess->move('d4d5'));
+        $chess = new Chess;
+        $chess->setFen('rnbqkbnr/ppp2ppp/8/3pp3/3PP3/8/PPP2PPP/RNBQKBNR w KQkq e6 0 3');
+        $this->assertTrue($chess->move('d4e5'));
+        $chess = new Chess;
+        $chess->setFen('rnbqkbnr/ppp2ppp/8/3pp3/3PP3/8/PPP2PPP/RNBQKBNR w KQkq e6 0 3');
+        $this->assertFalse($chess->move('d4c5'));
+        $chess = new Chess;
+        $chess->setFen('rnbqkbnr/ppp2ppp/8/3pp3/3PP3/8/PPP2PPP/RNBQKBNR b KQkq e6 0 3');
+        $this->assertFalse($chess->move('e5e4'));
+        $chess = new Chess;
+        $chess->setFen('rnbqkbnr/ppp2ppp/8/3pp3/3PP3/8/PPP2PPP/RNBQKBNR b KQkq e6 0 3');
+        $this->assertTrue($chess->move('e5d4'));
+        $chess = new Chess;
+        $chess->setFen('rnbqkbnr/ppp2ppp/8/3pp3/3PP3/8/PPP2PPP/RNBQKBNR b KQkq e6 0 3');
+        $this->assertFalse($chess->move('e5f4'));
+    }
+
     public function testMove()
     {
         $chess = new Chess;
