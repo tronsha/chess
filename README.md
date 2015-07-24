@@ -17,8 +17,8 @@ Chess
 
 ## Fonts
 
-* __[Ubuntu Mono][6]__
-* __Audiowide__ _Copyright (c) 2012, [Brian J. Bonislawsky DBA Astigmatic][7] (AOETI)_
+* [Ubuntu Mono][6]
+* Audiowide _Copyright (c) 2012, [Brian J. Bonislawsky DBA Astigmatic][7] (AOETI)_
 
 ## Creator
 
