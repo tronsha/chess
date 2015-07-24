@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'Audiowide';
+    src: url('../fonts/Audiowide-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ubuntu Mono';
+    src: url('../fonts/UbuntuMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *,
 *:before,
 *:after {
@@ -10,6 +24,10 @@ html {
     background: linear-gradient(#666666, #CCCCCC) repeat fixed 0% 0% #CCCCCC;
     height: 100%;
     width: 100%;
+}
+
+body {
+    font-family: 'Ubuntu Mono';
 }
 
 h1 {
