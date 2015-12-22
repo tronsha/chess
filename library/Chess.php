@@ -88,10 +88,15 @@ class Chess
 
     public function getComputerMove()
     {
+        $errorFile = '/tmp/chess-error-output.txt';
+        if (file_exists($errorFile) === false) {
+            file_put_contents($errorFile, '');
+            chmod($errorFile, 0666);
+        }
         $descriptorspec = array(
-            0 => array("pipe", "r"),
-            1 => array("pipe", "w"),
-            2 => array("file", "/tmp/error-output.txt", "a")
+            0 => array('pipe', 'r'),
+            1 => array('pipe', 'w'),
+            2 => array('file', $errorFile, 'a')
         );
         $cwd = './';
         $chess = realpath(__DIR__ . '/../bin/chess');
