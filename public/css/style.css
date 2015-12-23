@@ -75,3 +75,19 @@ h1 {
     background-image: url('../images/white.jpg');
     background-size: 100% 100%;
 }
+
+#fen {
+    font-size: 9px;
+}
+
+@media (max-width: 620px) {
+    body {
+        padding: 10px;
+        overflow: hidden;
+    }
+
+    #board {
+        height: auto;
+        width: 100%;
+    }
+}

@@ -13,7 +13,7 @@ if (isset($_GET['moves']) === true) {
 }
 $board = $chess->getBoardHtml();
 
-//$computerMove = $chess->getComputerMove();
+$computerMove = $chess->getComputerMove();
 ?><html>
 <head>
 <?php if (isset($computerMove) && $chess->getNext() == 'b' && $computerMove != 'a1a1'): ?>
@@ -26,6 +26,7 @@ $board = $chess->getBoardHtml();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/responsive.js"></script>
     <link href="css/normalize.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
