@@ -5,9 +5,15 @@ jQuery(document).ready(function () {
         var $this = $(this);
         $this.click(function() {
             var $this = $(this);
-            move += $this.attr('id');
-            if (move.length == 4) {
-                location.href += '|' + move;
+            if (move == $this.attr('id')) {
+                $this.removeClass('selected');
+                move = '';
+            } else {
+                $this.addClass('selected');
+                move += $this.attr('id');
+                if (move.length == 4) {
+                    location.href += '|' + move;
+                }
             }
         });
     });
