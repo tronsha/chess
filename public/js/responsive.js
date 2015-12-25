@@ -9,12 +9,17 @@ window.onresize = function () {
 
 var resize = function () {
     var $borad = jQuery('#board');
-    var width = $borad.width();
-    $borad.height(width);
+    var v;
+    if (window.matchMedia('(orientation: landscape)').matches) {
+        v = $borad.height();
+    } else {
+        v = $borad.width();
+    }
+    $borad.height(v);
     var $fields = $borad.children('div');
     $fields.each(function () {
         var $this = jQuery(this);
-        var x = width/8;
+        var x = v/8;
         $this.width(x);
         $this.height(x);
         $this.css('font-size', x);
