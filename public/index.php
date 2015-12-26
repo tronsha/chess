@@ -33,6 +33,6 @@ $computerMove = $chess->getComputerMove();
 <body>
 <h1>Chess</h1>
 <div id="board"><?php echo $board; ?></div>
-<div id="fen" style="display: block; text-align: center;"><?php echo $chess->getFen(); ?></div>
+<div id="fen"><?php echo $chess->getFen(); ?></div>
 </body>
 </html>

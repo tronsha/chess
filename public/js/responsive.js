@@ -9,6 +9,7 @@ window.onresize = function () {
 
 var resize = function () {
     var $borad = jQuery('#board');
+    $borad.removeAttr('style');
     var v;
     if (window.matchMedia('(orientation: landscape)').matches) {
         v = $borad.height();
@@ -16,6 +17,7 @@ var resize = function () {
         v = $borad.width();
     }
     $borad.height(v);
+    $borad.width(v);
     var $fields = $borad.children('div');
     $fields.each(function () {
         var $this = jQuery(this);

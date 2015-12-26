@@ -28,6 +28,8 @@ html {
 
 body {
     font-family: 'Ubuntu Mono';
+    padding: 10px;
+    overflow: hidden;
 }
 
 h1 {
@@ -35,6 +37,7 @@ h1 {
     font-size: 40px;
     font-weight: normal;
     letter-spacing: 10px;
+    margin: 0;
     text-align: center;
     text-shadow: 2px 1px #FFFFFF;
 }
@@ -43,6 +46,8 @@ h1 {
     height: 600px;
     margin-right: auto;
     margin-left: auto;
+    max-height: 100%;
+    max-width: 100%;
     width: 600px;
 }
 
@@ -81,27 +86,23 @@ h1 {
 }
 
 #fen {
-    font-size: 9px;
+    display: block;
+    font-size: 10px;
+    text-align: center;
 }
 
-@media (max-width: 620px) {
-
-    body {
-        padding: 10px;
-        overflow: hidden;
-    }
-
-    #board {
-        height: auto;
-        width: 100%;
-    }
-
-}
-
-@media (max-width: 620px) and (orientation: landscape) {
+@media (orientation: landscape) {
 
     h1, #fen {
         display: none;
+    }
+
+}
+
+@media (min-width: 1000px) {
+
+    h1, #fen {
+        display: block;
     }
 
 }
