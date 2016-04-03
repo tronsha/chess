@@ -24,7 +24,7 @@ var resize = function () {
         var x = v/8;
         $this.width(x);
         $this.height(x);
-        $this.css('font-size', x);
+        $this.css('font-size', x - 25);
         $this.css('line-height', x + 'px');
     });
 };
