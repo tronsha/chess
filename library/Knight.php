@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Copyright (C) 2015 - 2016 Stefan Hüsges
+ */
+
 namespace Chess;
 
 /**
@@ -29,7 +33,7 @@ class Knight extends Chessman
 
     public function checkMove($to)
     {
-        if (round($this->getDistance($to), 3) == 2.236) {
+        if (round($this->getDistance($to), 3) === 2.236) {
             return true;
         }
 

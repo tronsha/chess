@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Copyright (C) 2015 - 2016 Stefan Hüsges
+ */
+
 namespace Chess;
 
 /**
@@ -29,7 +33,7 @@ class Bishop extends Chessman
 
     public function checkMove($to)
     {
-        if (in_array(round($this->getDistance($to) / M_SQRT2, 3), [1, 2, 3, 4, 5, 6, 7])) {
+        if (in_array(round($this->getDistance($to) / M_SQRT2, 3), [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0], true)) {
             $from = $this->getPosition();
             $to = $this->board->key2ids($to);
             $board = $this->board->getArray();

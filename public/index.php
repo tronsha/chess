@@ -1,6 +1,6 @@
 <?php
 
-require_once('../vendor/autoload.php');
+require_once '../vendor/autoload.php';
 
 use Chess\Chess;
 
@@ -16,8 +16,8 @@ $board = $chess->getBoardHtml();
 $computerMove = $chess->getComputerMove();
 ?><html>
 <head>
-<?php if (isset($computerMove) && $chess->getNext() == 'b' && $computerMove != 'a1a1'): ?>
-    <meta http-equiv="refresh" content="5; url='?<?php echo (isset($_GET['fen']) ? 'fen=' . $_GET['fen'] . '&amp;' : ''); ?>moves=<?php echo (isset($_GET['moves']) ? $_GET['moves'] . '|' : '') . $computerMove; ?>'">
+<?php if (isset($computerMove) && $chess->getNext() === 'b' && $computerMove !== 'a1a1'): ?>
+    <meta http-equiv="refresh" content="5; url='?<?php echo(isset($_GET['fen']) ? 'fen=' . $_GET['fen'] . '&amp;' : ''); ?>moves=<?php echo(isset($_GET['moves']) ? $_GET['moves'] . '|' : '') . $computerMove; ?>'">
 <?php endif; ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Copyright (C) 2015 - 2016 Stefan Hüsges
+ */
+
 namespace Chess;
 
 /**
@@ -56,7 +60,7 @@ abstract class Chessman
     {
         foreach ($this->board->getArray() as $lineKey => $line) {
             foreach ($line as $fieldKey => $field) {
-                if ($field == $this) {
+                if ($field === $this) {
                     return [$fieldKey, $lineKey];
                 }
             }
@@ -70,5 +74,7 @@ abstract class Chessman
         return sqrt(pow(abs($from[0] - $to[0]), 2) + pow(abs($from[1] - $to[1]), 2));
     }
 
-    public function checkMove($to) {}
+    public function checkMove($to)
+    {
+    }
 }

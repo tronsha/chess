@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Copyright (C) 2015 - 2016 Stefan Hüsges
+ */
+
 namespace Chess;
 
 /**
@@ -29,11 +33,11 @@ class Queen extends Chessman
 
     public function checkMove($to)
     {
-        if (in_array($this->getDistance($to), [1, 2, 3, 4, 5, 6, 7])) {
+        if (in_array($this->getDistance($to), [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0], true)) {
             $from = $this->getPosition();
             $to = $this->board->key2ids($to);
             $board = $this->board->getArray();
-            if ($from[0] == $to[0]) {
+            if ($from[0] === $to[0]) {
                 $x = $from[0];
                 $minY = min($from[1], $to[1]);
                 $maxY = max($from[1], $to[1]);
@@ -42,7 +46,7 @@ class Queen extends Chessman
                         return false;
                     }
                 }
-            } elseif ($from[1] == $to[1]) {
+            } elseif ($from[1] === $to[1]) {
                 $y = $from[1];
                 $minX = min($from[0], $to[0]);
                 $maxX = max($from[0], $to[0]);
@@ -55,7 +59,7 @@ class Queen extends Chessman
 
             return true;
         }
-        if (in_array(round($this->getDistance($to) / M_SQRT2, 3), [1, 2, 3, 4, 5, 6, 7])) {
+        if (in_array(round($this->getDistance($to) / M_SQRT2, 3), [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0], true)) {
             $from = $this->getPosition();
             $to = $this->board->key2ids($to);
             $board = $this->board->getArray();

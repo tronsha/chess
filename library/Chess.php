@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Copyright (C) 2015 - 2016 Stefan Hüsges
+ */
+
 namespace Chess;
 
 /**
@@ -88,16 +92,17 @@ class Chess
 
     public function getComputerMove()
     {
+        $return = null;
         $errorFile = '/tmp/chess-error-output.txt';
         if (file_exists($errorFile) === false) {
             file_put_contents($errorFile, '');
             chmod($errorFile, 0666);
         }
-        $descriptorspec = array(
-            0 => array('pipe', 'r'),
-            1 => array('pipe', 'w'),
-            2 => array('file', $errorFile, 'a')
-        );
+        $descriptorspec = [
+            0 => ['pipe', 'r'],
+            1 => ['pipe', 'w'],
+            2 => ['file', $errorFile, 'a']
+        ];
         $cwd = './';
         $chess = realpath(__DIR__ . '/../bin/chess');
         $process = proc_open($chess . ' --uci', $descriptorspec, $pipes, $cwd);
