@@ -5,7 +5,7 @@ jQuery(document).ready(function () {
     var move = '';
     $('#board > div').each(function () {
         var $this = $(this);
-        $this.click(function () {
+        $this.on('click', function () {
             var $this = $(this);
             if (move == $this.attr('id')) {
                 $this.removeClass('selected');
