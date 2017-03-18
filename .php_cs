@@ -1,7 +1,7 @@
 <?php
 
 $header = <<<'EOF'
-Copyright (C) 2015 - 2016 Stefan Hüsges
+Copyright (C) 2015 - 2017 Stefan Hüsges
 EOF;
 
 return PhpCsFixer\Config::create()
