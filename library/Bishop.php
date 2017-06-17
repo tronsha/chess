@@ -4,7 +4,6 @@
  * Copyright (C) 2015 - 2017 Stefan Hüsges
  */
 
-
 namespace Chess;
 
 /**
